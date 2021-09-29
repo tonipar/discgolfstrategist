@@ -30,10 +30,22 @@ Route::get('/', [MainController::class, 'index'])
     ->name('home')
     ->middleware(['auth:sanctum', 'verified']);
 
-Route::get('/Course', [CourseController::class, 'index'])
+Route::get('/course', [CourseController::class, 'index'])
     ->name('course.index')
     ->middleware(['auth:sanctum', 'verified']);
 
-Route::post('/Course', [CourseController::class, 'store'])
+Route::get('/course/create', [CourseController::class, 'create'])
+    ->name('course.create')
+    ->middleware(['auth:sanctum', 'verified']);
+
+Route::get('/course/{course}/edit', [CourseController::class, 'edit'])
+    ->name('course.edit')
+    ->middleware(['auth:sanctum', 'verified']);
+
+Route::post('/course', [CourseController::class, 'store'])
     ->name('course.store')
+    ->middleware(['auth:sanctum', 'verified']);
+
+Route::put('/course/{course}/update', [CourseController::class, 'update'])
+    ->name('course.update')
     ->middleware(['auth:sanctum', 'verified']);
