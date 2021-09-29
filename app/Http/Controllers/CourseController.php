@@ -31,7 +31,7 @@ class CourseController extends Controller
 
         Course::create($request->all());
 
-        return Redirect::route('course.index')->with('success', 'Organization created.');
+        return Redirect::route('course.index')->with('success', 'Course created.');
     }
 
     public function edit(Course $course)
@@ -58,5 +58,12 @@ class CourseController extends Controller
         );
 
         return Redirect::back()->with('success', 'Course updated.');
+    }
+
+    public function destroy(Course $course)
+    {
+        $course->delete();
+
+        return Redirect::route('course.index')->with('success', 'Course deleted.');
     }
 }

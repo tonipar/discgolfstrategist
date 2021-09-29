@@ -49,3 +49,7 @@ Route::post('/course', [CourseController::class, 'store'])
 Route::put('/course/{course}/update', [CourseController::class, 'update'])
     ->name('course.update')
     ->middleware(['auth:sanctum', 'verified']);
+
+Route::delete('/course/{course}/delete', [CourseController::class, 'destroy'])
+    ->name('course.destroy')
+    ->middleware(['auth:sanctum', 'verified']);

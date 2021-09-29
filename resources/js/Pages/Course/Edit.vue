@@ -17,14 +17,22 @@
         </div>
         <button type="submit">Submit</button>
     </form>
+     <div>
+        <Link :href="route('course.destroy', course.id)" method="delete" as="button" type="button" class="border rounded px-4 py-2 bg-red-500">Delete</Link>
+    </div>
   </div>
 </template>
 
 <script>
 import AppLayout from '../../Layouts/AppLayout'
+import { Link } from '@inertiajs/inertia-vue3'
+
 export default {
   metaInfo: { title: 'Edit Course' },
   layout: AppLayout,
+  components: {
+      Link
+  },
   props: {
       course: Object,
   },
